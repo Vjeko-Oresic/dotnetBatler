@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BatlerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Domjenak">
+    <Key>
+      <PropertyRef Name="id_domjenak" />
+    </Key>
+    <Property Name="id_domjenak" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_klijent" Type="Int32" Nullable="false" />
+    <Property Name="id_invertar" Type="Int32" />
+    <Property Name="kolicina" Type="Int32" />
+    <Property Name="datum" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="vrijeme1" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="vrijeme2" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="brojLjudi" Type="Int32" />
+    <Property Name="brojKonobara" Type="Int32" />
+    <Property Name="ukupnaCijena" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="kapara" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="klijent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="invertar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Invertar1" Relationship="Self.FK_Domjenak_Invertar" FromRole="Domjenak" ToRole="Invertar" />
+    <NavigationProperty Name="Klijent1" Relationship="Self.FK_Domjenak_Klijent" FromRole="Domjenak" ToRole="Klijent" />
+  </EntityType>
+  <EntityType Name="Invertar">
+    <Key>
+      <PropertyRef Name="id_invertar" />
+    </Key>
+    <Property Name="id_invertar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="naziv" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="kolicina" Type="Int32" Nullable="false" />
+    <Property Name="cijena" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Domjenak" Relationship="Self.FK_Domjenak_Invertar" FromRole="Invertar" ToRole="Domjenak" />
+  </EntityType>
+  <EntityType Name="Klijent">
+    <Key>
+      <PropertyRef Name="id_klijent" />
+    </Key>
+    <Property Name="id_klijent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="imePrezime1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="imePrezime2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="brojTel1" Type="Int32" Nullable="false" />
+    <Property Name="brojTel2" Type="Int32" />
+    <Property Name="adresa1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="adresa2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="adresa_domjenak" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Domjenak" Relationship="Self.FK_Domjenak_Klijent" FromRole="Klijent" ToRole="Domjenak" />
+  </EntityType>
+  <Association Name="FK_Domjenak_Invertar">
+    <End Role="Invertar" Type="Self.Invertar" Multiplicity="0..1" />
+    <End Role="Domjenak" Type="Self.Domjenak" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Invertar">
+        <PropertyRef Name="id_invertar" />
+      </Principal>
+      <Dependent Role="Domjenak">
+        <PropertyRef Name="id_invertar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Domjenak_Klijent">
+    <End Role="Klijent" Type="Self.Klijent" Multiplicity="1" />
+    <End Role="Domjenak" Type="Self.Domjenak" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Klijent">
+        <PropertyRef Name="id_klijent" />
+      </Principal>
+      <Dependent Role="Domjenak">
+        <PropertyRef Name="id_klijent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BatlerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Domjenak" EntityType="Self.Domjenak" />
+    <EntitySet Name="Invertar" EntityType="Self.Invertar" />
+    <EntitySet Name="Klijent" EntityType="Self.Klijent" />
+    <AssociationSet Name="FK_Domjenak_Invertar" Association="Self.FK_Domjenak_Invertar">
+      <End Role="Invertar" EntitySet="Invertar" />
+      <End Role="Domjenak" EntitySet="Domjenak" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Domjenak_Klijent" Association="Self.FK_Domjenak_Klijent">
+      <End Role="Klijent" EntitySet="Klijent" />
+      <End Role="Domjenak" EntitySet="Domjenak" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

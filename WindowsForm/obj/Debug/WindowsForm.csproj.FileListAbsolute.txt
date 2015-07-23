@@ -1,0 +1,16 @@
+C:\Users\Vjeko\Documents\Visual Studio 2013\Projects\dotn\Projekt\WindowsForm\bin\Debug\WindowsForm.exe.config
+C:\Users\Vjeko\Documents\Visual Studio 2013\Projects\dotn\Projekt\WindowsForm\bin\Debug\WindowsForm.exe
+C:\Users\Vjeko\Documents\Visual Studio 2013\Projects\dotn\Projekt\WindowsForm\bin\Debug\WindowsForm.pdb
+C:\Users\Vjeko\Documents\Visual Studio 2013\Projects\dotn\Projekt\WindowsForm\obj\Debug\WindowsForm.csprojResolveAssemblyReference.cache
+C:\Users\Vjeko\Documents\Visual Studio 2013\Projects\dotn\Projekt\WindowsForm\obj\Debug\WindowsForm.Form1.resources
+C:\Users\Vjeko\Documents\Visual Studio 2013\Projects\dotn\Projekt\WindowsForm\obj\Debug\WindowsForm.Form2.resources
+C:\Users\Vjeko\Documents\Visual Studio 2013\Projects\dotn\Projekt\WindowsForm\obj\Debug\WindowsForm.Properties.Resources.resources
+C:\Users\Vjeko\Documents\Visual Studio 2013\Projects\dotn\Projekt\WindowsForm\obj\Debug\WindowsForm.csproj.GenerateResource.Cache
+C:\Users\Vjeko\Documents\Visual Studio 2013\Projects\dotn\Projekt\WindowsForm\obj\Debug\WindowsForm.exe
+C:\Users\Vjeko\Documents\Visual Studio 2013\Projects\dotn\Projekt\WindowsForm\obj\Debug\WindowsForm.pdb
+C:\Users\Vjeko\Documents\Visual Studio 2013\Projects\dotn\Projekt\WindowsForm\obj\Debug\WindowsForm.AboutBox1.resources
+C:\Users\Vjeko\Documents\Visual Studio 2013\Projects\dotn\Projekt\WindowsForm\bin\Debug\EntityFramework.dll
+C:\Users\Vjeko\Documents\Visual Studio 2013\Projects\dotn\Projekt\WindowsForm\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Vjeko\Documents\Visual Studio 2013\Projects\dotn\Projekt\WindowsForm\bin\Debug\EntityFramework.xml
+C:\Users\Vjeko\Documents\Visual Studio 2013\Projects\dotn\Projekt\WindowsForm\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Vjeko\Documents\Visual Studio 2013\Projects\dotn\Projekt\WindowsForm\obj\Debug\WindowsForm.Form3.resources

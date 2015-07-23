@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BatlerModelStoreContainer" CdmEntityContainer="BatlerEntities">
+    <EntitySetMapping Name="Domjenak">
+      <EntityTypeMapping TypeName="BatlerModel.Domjenak">
+        <MappingFragment StoreEntitySet="Domjenak">
+          <ScalarProperty Name="id_domjenak" ColumnName="id_domjenak" />
+          <ScalarProperty Name="id_klijent" ColumnName="id_klijent" />
+          <ScalarProperty Name="id_invertar" ColumnName="id_invertar" />
+          <ScalarProperty Name="kolicina" ColumnName="kolicina" />
+          <ScalarProperty Name="datum" ColumnName="datum" />
+          <ScalarProperty Name="vrijeme1" ColumnName="vrijeme1" />
+          <ScalarProperty Name="vrijeme2" ColumnName="vrijeme2" />
+          <ScalarProperty Name="brojLjudi" ColumnName="brojLjudi" />
+          <ScalarProperty Name="brojKonobara" ColumnName="brojKonobara" />
+          <ScalarProperty Name="ukupnaCijena" ColumnName="ukupnaCijena" />
+          <ScalarProperty Name="kapara" ColumnName="kapara" />
+          <ScalarProperty Name="klijent" ColumnName="klijent" />
+          <ScalarProperty Name="invertar" ColumnName="invertar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invertar">
+      <EntityTypeMapping TypeName="BatlerModel.Invertar">
+        <MappingFragment StoreEntitySet="Invertar">
+          <ScalarProperty Name="id_invertar" ColumnName="id_invertar" />
+          <ScalarProperty Name="naziv" ColumnName="naziv" />
+          <ScalarProperty Name="kolicina" ColumnName="kolicina" />
+          <ScalarProperty Name="cijena" ColumnName="cijena" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Klijent">
+      <EntityTypeMapping TypeName="BatlerModel.Klijent">
+        <MappingFragment StoreEntitySet="Klijent">
+          <ScalarProperty Name="id_klijent" ColumnName="id_klijent" />
+          <ScalarProperty Name="imePrezime1" ColumnName="imePrezime1" />
+          <ScalarProperty Name="imePrezime2" ColumnName="imePrezime2" />
+          <ScalarProperty Name="brojTel1" ColumnName="brojTel1" />
+          <ScalarProperty Name="brojTel2" ColumnName="brojTel2" />
+          <ScalarProperty Name="adresa1" ColumnName="adresa1" />
+          <ScalarProperty Name="adresa2" ColumnName="adresa2" />
+          <ScalarProperty Name="adresa_domjenak" ColumnName="adresa_domjenak" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

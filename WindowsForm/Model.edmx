@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BatlerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Domjenak">
+          <Key>
+            <PropertyRef Name="id_domjenak" />
+          </Key>
+          <Property Name="id_domjenak" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_klijent" Type="int" Nullable="false" />
+          <Property Name="id_invertar" Type="int" />
+          <Property Name="kolicina" Type="int" />
+          <Property Name="datum" Type="date" Nullable="false" />
+          <Property Name="vrijeme1" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="vrijeme2" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="brojLjudi" Type="int" />
+          <Property Name="brojKonobara" Type="int" />
+          <Property Name="ukupnaCijena" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="kapara" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="klijent" Type="varchar" MaxLength="50" />
+          <Property Name="invertar" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Invertar">
+          <Key>
+            <PropertyRef Name="id_invertar" />
+          </Key>
+          <Property Name="id_invertar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="naziv" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="kolicina" Type="int" Nullable="false" />
+          <Property Name="cijena" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Klijent">
+          <Key>
+            <PropertyRef Name="id_klijent" />
+          </Key>
+          <Property Name="id_klijent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imePrezime1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="imePrezime2" Type="varchar" MaxLength="50" />
+          <Property Name="brojTel1" Type="int" Nullable="false" />
+          <Property Name="brojTel2" Type="int" />
+          <Property Name="adresa1" Type="varchar" MaxLength="200" />
+          <Property Name="adresa2" Type="varchar" MaxLength="200" />
+          <Property Name="adresa_domjenak" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Domjenak_Invertar">
+          <End Role="Invertar" Type="Self.Invertar" Multiplicity="0..1" />
+          <End Role="Domjenak" Type="Self.Domjenak" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invertar">
+              <PropertyRef Name="id_invertar" />
+            </Principal>
+            <Dependent Role="Domjenak">
+              <PropertyRef Name="id_invertar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Domjenak_Klijent">
+          <End Role="Klijent" Type="Self.Klijent" Multiplicity="1" />
+          <End Role="Domjenak" Type="Self.Domjenak" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klijent">
+              <PropertyRef Name="id_klijent" />
+            </Principal>
+            <Dependent Role="Domjenak">
+              <PropertyRef Name="id_klijent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BatlerModelStoreContainer">
+          <EntitySet Name="Domjenak" EntityType="Self.Domjenak" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invertar" EntityType="Self.Invertar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Klijent" EntityType="Self.Klijent" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Domjenak_Invertar" Association="Self.FK_Domjenak_Invertar">
+            <End Role="Invertar" EntitySet="Invertar" />
+            <End Role="Domjenak" EntitySet="Domjenak" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Domjenak_Klijent" Association="Self.FK_Domjenak_Klijent">
+            <End Role="Klijent" EntitySet="Klijent" />
+            <End Role="Domjenak" EntitySet="Domjenak" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BatlerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Domjenak">
+          <Key>
+            <PropertyRef Name="id_domjenak" />
+          </Key>
+          <Property Name="id_domjenak" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_klijent" Type="Int32" Nullable="false" />
+          <Property Name="id_invertar" Type="Int32" />
+          <Property Name="kolicina" Type="Int32" />
+          <Property Name="datum" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="vrijeme1" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="vrijeme2" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="brojLjudi" Type="Int32" />
+          <Property Name="brojKonobara" Type="Int32" />
+          <Property Name="ukupnaCijena" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="kapara" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="klijent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="invertar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Invertar1" Relationship="Self.FK_Domjenak_Invertar" FromRole="Domjenak" ToRole="Invertar" />
+          <NavigationProperty Name="Klijent1" Relationship="Self.FK_Domjenak_Klijent" FromRole="Domjenak" ToRole="Klijent" />
+        </EntityType>
+        <EntityType Name="Invertar">
+          <Key>
+            <PropertyRef Name="id_invertar" />
+          </Key>
+          <Property Name="id_invertar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naziv" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="kolicina" Type="Int32" Nullable="false" />
+          <Property Name="cijena" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Domjenak" Relationship="Self.FK_Domjenak_Invertar" FromRole="Invertar" ToRole="Domjenak" />
+        </EntityType>
+        <EntityType Name="Klijent">
+          <Key>
+            <PropertyRef Name="id_klijent" />
+          </Key>
+          <Property Name="id_klijent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="imePrezime1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imePrezime2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="brojTel1" Type="Int32" Nullable="false" />
+          <Property Name="brojTel2" Type="Int32" />
+          <Property Name="adresa1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="adresa2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="adresa_domjenak" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Domjenak" Relationship="Self.FK_Domjenak_Klijent" FromRole="Klijent" ToRole="Domjenak" />
+        </EntityType>
+        <Association Name="FK_Domjenak_Invertar">
+          <End Role="Invertar" Type="Self.Invertar" Multiplicity="0..1" />
+          <End Role="Domjenak" Type="Self.Domjenak" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invertar">
+              <PropertyRef Name="id_invertar" />
+            </Principal>
+            <Dependent Role="Domjenak">
+              <PropertyRef Name="id_invertar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Domjenak_Klijent">
+          <End Role="Klijent" Type="Self.Klijent" Multiplicity="1" />
+          <End Role="Domjenak" Type="Self.Domjenak" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klijent">
+              <PropertyRef Name="id_klijent" />
+            </Principal>
+            <Dependent Role="Domjenak">
+              <PropertyRef Name="id_klijent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BatlerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Domjenak" EntityType="Self.Domjenak" />
+          <EntitySet Name="Invertar" EntityType="Self.Invertar" />
+          <EntitySet Name="Klijent" EntityType="Self.Klijent" />
+          <AssociationSet Name="FK_Domjenak_Invertar" Association="Self.FK_Domjenak_Invertar">
+            <End Role="Invertar" EntitySet="Invertar" />
+            <End Role="Domjenak" EntitySet="Domjenak" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Domjenak_Klijent" Association="Self.FK_Domjenak_Klijent">
+            <End Role="Klijent" EntitySet="Klijent" />
+            <End Role="Domjenak" EntitySet="Domjenak" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BatlerModelStoreContainer" CdmEntityContainer="BatlerEntities">
+          <EntitySetMapping Name="Domjenak">
+            <EntityTypeMapping TypeName="BatlerModel.Domjenak">
+              <MappingFragment StoreEntitySet="Domjenak">
+                <ScalarProperty Name="id_domjenak" ColumnName="id_domjenak" />
+                <ScalarProperty Name="id_klijent" ColumnName="id_klijent" />
+                <ScalarProperty Name="id_invertar" ColumnName="id_invertar" />
+                <ScalarProperty Name="kolicina" ColumnName="kolicina" />
+                <ScalarProperty Name="datum" ColumnName="datum" />
+                <ScalarProperty Name="vrijeme1" ColumnName="vrijeme1" />
+                <ScalarProperty Name="vrijeme2" ColumnName="vrijeme2" />
+                <ScalarProperty Name="brojLjudi" ColumnName="brojLjudi" />
+                <ScalarProperty Name="brojKonobara" ColumnName="brojKonobara" />
+                <ScalarProperty Name="ukupnaCijena" ColumnName="ukupnaCijena" />
+                <ScalarProperty Name="kapara" ColumnName="kapara" />
+                <ScalarProperty Name="klijent" ColumnName="klijent" />
+                <ScalarProperty Name="invertar" ColumnName="invertar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invertar">
+            <EntityTypeMapping TypeName="BatlerModel.Invertar">
+              <MappingFragment StoreEntitySet="Invertar">
+                <ScalarProperty Name="id_invertar" ColumnName="id_invertar" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+                <ScalarProperty Name="kolicina" ColumnName="kolicina" />
+                <ScalarProperty Name="cijena" ColumnName="cijena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Klijent">
+            <EntityTypeMapping TypeName="BatlerModel.Klijent">
+              <MappingFragment StoreEntitySet="Klijent">
+                <ScalarProperty Name="id_klijent" ColumnName="id_klijent" />
+                <ScalarProperty Name="imePrezime1" ColumnName="imePrezime1" />
+                <ScalarProperty Name="imePrezime2" ColumnName="imePrezime2" />
+                <ScalarProperty Name="brojTel1" ColumnName="brojTel1" />
+                <ScalarProperty Name="brojTel2" ColumnName="brojTel2" />
+                <ScalarProperty Name="adresa1" ColumnName="adresa1" />
+                <ScalarProperty Name="adresa2" ColumnName="adresa2" />
+                <ScalarProperty Name="adresa_domjenak" ColumnName="adresa_domjenak" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
